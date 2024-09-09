@@ -27,6 +27,7 @@ jobs:
         pip install -r requirements.txt
         pip install pytest  # Explicitly install pytest
 
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -39,7 +40,9 @@ jobs:
     - name: Install Render CLI
       run: curl -fsSL https://cli.render.com/install | bash
 
-    # Step 3: Deploy to Render without using secrets
+    # Step 3: Deploy to Render
     - name: Deploy to Render
+      env:
+        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # Use GitHub Secrets for API key
       run: |
-        render services update api --api-key rnd_fJ4PumLUh0CL5KUby29Vi0Wp7nhJ --envfile .env  # Directly passing the API key
+        render services update api --api-key $RENDER_API_KEY --envfile .env
