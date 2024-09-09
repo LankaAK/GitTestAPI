@@ -6,6 +6,9 @@ import joblib
 
 # 1. Initialize FastAPI app
 app = FastAPI()
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Titanic Survival Prediction API!"}
 
 # 2. Load the trained model
 model_path = os.getenv('MODEL_PATH', 'titanic_model.pkl')  # Read model path from environment variable
