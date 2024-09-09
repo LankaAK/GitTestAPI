@@ -1,18 +1,3 @@
-The error you're encountering, `pytest: command not found`, indicates that `pytest` is not installed in your environment. To fix this issue, you need to ensure that `pytest` is listed in your `requirements.txt` file or installed as part of the CI workflow.
-
-### Solution:
-
-1. **Ensure `pytest` is in `requirements.txt`:**
-   - Add `pytest` to your `requirements.txt` if it's not already listed:
-     ```
-     pytest==<version>  # Use the latest version or a specific one
-     ```
-
-2. **Alternatively, install `pytest` in the workflow:**
-   If you prefer not to add `pytest` to your `requirements.txt`, you can modify your GitHub Actions workflow to install it separately. Here's how to do it:
-
-### Updated GitHub Actions workflow:
-```yaml
 name: CI/CD Pipeline
 
 on:
@@ -51,6 +36,3 @@ jobs:
     - name: Build FastAPI app
       run: |
         echo "Building FastAPI app..."
-```
-
-This will ensure that `pytest` is available in the GitHub Actions environment before running your tests. Let me know if this resolves the issue!
