@@ -43,8 +43,4 @@ jobs:
         export PATH=$PATH:/root/.local/bin  # Add Render CLI to PATH
         render --version  # Verify installation
 
-    # Step 3: Deploy to Render
-    - name: Deploy to Render
-      run: |
-        export PATH=$PATH:/root/.local/bin  # Ensure PATH includes Render CLI
-        render services update api --api-key rnd_fJ4PumLUh0CL5KUby29Vi0Wp7nhJ --envfile .env
+    
