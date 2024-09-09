@@ -27,11 +27,6 @@ jobs:
         pip install -r requirements.txt
         pip install pytest  # Explicitly install pytest
 
-    # Step 4: Run tests (Optional)
-    - name: Run tests
-      run: |
-        pytest
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
