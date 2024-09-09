@@ -27,15 +27,15 @@ jobs:
         pip install -r requirements.txt
 
 
-    # Install Render CLI
-    - name: Install Render CLI
-      run: |
-        curl -fsSL https://cli.render.com/install | bash
-        export PATH=$PATH:/root/.local/bin
-        render --version  # Verify installation
+    #Install Render CLI
+   # - #name: Install Render CLI
+      #run: |
+       # curl -fsSL https://cli.render.com/install | bash
+        #export PATH=$PATH:/root/.local/bin
+        #render --version  # Verify installation
 
     # Deploy to Render
-    - name: Deploy to Render
-      run: |
-        export PATH=$PATH:/root/.local/bin  # Ensure PATH includes Render CLI
-        render services update api --api-key rnd_fJ4PumLUh0CL5KUby29Vi0Wp7nhJ --envfile .env
+   # - name: Deploy to Render
+    #  run: |
+     #   export PATH=$PATH:/root/.local/bin  # Ensure PATH includes Render CLI
+      #  render services update api --api-key rnd_fJ4PumLUh0CL5KUby29Vi0Wp7nhJ --envfile .env
