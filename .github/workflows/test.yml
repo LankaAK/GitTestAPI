@@ -38,11 +38,13 @@ jobs:
 
     # Step 2: Install Render CLI
     - name: Install Render CLI
-      run: curl -fsSL https://cli.render.com/install | bash
+      run: |
+        curl -fsSL https://cli.render.com/install | bash
+        export PATH=$PATH:/root/.local/bin  # Add Render CLI to PATH
+        render --version  # Verify installation
 
     # Step 3: Deploy to Render
     - name: Deploy to Render
-      env:
-        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # Use GitHub Secrets for API key
       run: |
-        render services update api --api-key $RENDER_API_KEY --envfile .env
+        export PATH=$PATH:/root/.local/bin  # Ensure PATH includes Render CLI
+        render services update api --api-key rnd_fJ4PumLUh0CL5KUby29Vi0Wp7nhJ --envfile .env
